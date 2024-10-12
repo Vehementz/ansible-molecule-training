@@ -1,0 +1,41 @@
+---
+# tasks file for nginx
+- name: Installer Nginx
+  apt:
+    name: nginx
+    state: present
+    update_cache: yes
+  become: true
+
+
+- name: Copier la configuration du site par défaut
+  template:
+    src: default.j2
+    dest: /etc/nginx/sites-available/default
+  notify: Recharger Nginx
+  become: true
+
+- name: Activer le site par défaut
+  file:
+    src: /etc/nginx/sites-available/default
+    dest: /etc/nginx/sites-enabled/default
+    state: link
+    force: yes
+  notify: Recharger Nginx
+  become: true
+
+- name: Copier le fichier index.html
+  copy:
+    src: index.html
+    dest: /var/www/html/index.html
+    owner: www-data
+    group: www-data
+    mode: '0644'
+  become: true
+
+- name: S'assurer que Nginx est démarré et activé
+  service:
+    name: nginx
+    state: started
+    enabled: true
+  become: true

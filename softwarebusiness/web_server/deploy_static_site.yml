@@ -1,0 +1,6 @@
+---
+- hosts: webservers
+  become: true
+  roles:
+    - softwarebusiness.web_server.nginx
+    - mon_namespace.web_server.static_site

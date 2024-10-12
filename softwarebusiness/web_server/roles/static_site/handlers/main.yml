@@ -1,0 +1,7 @@
+---
+# handlers file for static_site
+- name: Recharger Nginx
+  service:
+    name: nginx
+    state: reloaded
+  become: true

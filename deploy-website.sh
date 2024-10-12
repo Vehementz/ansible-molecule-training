@@ -1,0 +1,1 @@
+ansible-playbook -i hosts deploy_static_site.yml

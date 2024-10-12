@@ -1,0 +1,13 @@
+---
+# tasks file for static_site
+
+- name: Copier les fichiers HTML statiques
+  copy:
+    src: "{{ item }}"
+    dest: "/var/www/html/{{ item | basename }}"
+    owner: www-data
+    group: www-data
+    mode: '0644'
+  loop: "{{ files_to_copy }}"
+  notify: Recharger Nginx
+  become: true

@@ -1,0 +1,22 @@
+galaxy_info:
+  role_name: nginx
+  namespace: <namespace>
+  author: <your name>
+  description: <A simple description of the role>
+  company: <Your company>
+
+  license: MIT
+
+  min_ansible_version: 2.9 
+
+  platforms:
+    - name: Ubuntu
+      versions:
+        - xenial
+        - bionic
+        - focal
+        - jammy
+
+  galaxy_tags:
+    - development
+    - test

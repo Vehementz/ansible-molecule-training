@@ -1,0 +1,19 @@
+---
+driver:
+  name: docker
+platforms:
+  - name: instance
+    image: quay.io/centos/centos:stream9
+    pre_build_image: true
+
+  - name: ubuntustance-22
+    image: ubuntu:22.04
+    pre_build_image: true
+
+  - name: ubuntustance-24
+    image: ubuntu:24.04
+    pre_build_image: true
+
+  - name: ubuntustance
+    image: manjarolinux/base
+    pre_build_image: true
